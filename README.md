@@ -21,8 +21,11 @@ A aplicação oferece as seguintes rotas para acessar os dados:
     └── services/ 
         ├── __init__.py 
         └── embrapa_service.py
+   └── routes.py
+   └── __init__.py
 
-- **`run.py`**: Arquivo principal que inicia o servidor Flask e define as rotas da API.
+- **`run.py`**: Arquivo principal que inicia o servidor Flask
+- **`routes.py `**: definição das rotas da API.
 - **`app/services/embrapa_service.py`**: Contém funções para extração e processamento de dados das tabelas HTML.
 - **`requirements.txt`**: Lista de dependências do projeto.
 - **`.gitignore`**: Arquivo que define os arquivos e diretórios a serem ignorados pelo Git.
