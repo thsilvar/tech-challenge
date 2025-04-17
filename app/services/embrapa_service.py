@@ -25,7 +25,7 @@ def extrair_dados_tabela(html):
         else:
             dados.append({
                 'categoria': categoria_atual,
-                'produto': nome,
+                'tipo_produto': nome,
                 'quantidade': quantidade
             })
 
