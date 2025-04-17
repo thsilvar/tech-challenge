@@ -5,17 +5,17 @@ import requests
 from app.model.produto import Produto
 
 produto_api = Namespace("Produtos", description="Rotas para acessar dados dos produtos da Embrapa")
-produto_model = produto_api.model('Produto', {
-    'tipo_produto': fields.String(description='Nome do país'),
-    'categoria': fields.String(description='Quantidade de produtos'),
-    'quantidade': fields.String(description='Valor em dólares')
-})
 
+producao_model = produto_api.model('Produto', {
+    'tipo_produto': fields.String(description='Tipo do produto', example='Branco'),
+    'categoria': fields.String(description='Categoria de produtos', example='Vinho fino de mesa'), 
+    'quantidade': fields.String(description='Quantidade do produto', example='1000')
+})
 
 
 @produto_api.route('/producao')
 @produto_api.doc(description='Rota para obter dados de produção')
-@produto_api.response(200, 'Success', [produto_model])
+@produto_api.response(200, 'Success', [producao_model])
 @produto_api.response(404, 'Not Found') 
 class ProdutoList(Resource):
     def get(self):
@@ -32,7 +32,7 @@ class ProdutoList(Resource):
 
 @produto_api.route('/processamento')
 @produto_api.doc(description='Rota para obter dados de processamento')
-@produto_api.response(200, 'Success', [produto_model])
+@produto_api.response(200, 'Success', [producao_model])
 @produto_api.response(404, 'Not Found') 
 class Processamento(Resource):
     def get(self):
@@ -46,7 +46,7 @@ class Processamento(Resource):
 
 @produto_api.route('/comercializacao')
 @produto_api.doc(description='Rota para obter dados de comercializacao')
-@produto_api.response(200, 'Success', [produto_model])
+@produto_api.response(200, 'Success', [producao_model])
 @produto_api.response(404, 'Not Found') 
 class Comercializacao(Resource):
     def get(self):
