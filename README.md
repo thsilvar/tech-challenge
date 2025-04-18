@@ -43,10 +43,9 @@ A aplicação oferece as seguintes rotas para acessar os dados:
    ```bash
    git clone <URL_DO_REPOSITORIO>
    cd tech_challenge
-2. Instale as dependências:
-   pip install -r requirements.txt
+2. No VS Code: F1 → Dev Containers: Rebuild and Reopen in Container
 3. Execute a aplicação:
-   python run.py
-4. Acesse a API em http://127.0.0.1:5000.
+   python main.py
+4. Acesse a API em http://127.0.0.1:8080/api/docs
 
 Contribuição:
