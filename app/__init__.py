@@ -1,29 +1,23 @@
-from flask import Flask, Blueprint
-from app.route_produtos import produto_api as routes_namespace
-from app.route_imp_exp import importacao_api as importacao_ns, exportacao_api as exportacao_ns
-from flask_restx import Api
-
-
+from fastapi import FastAPI
+from app.produto_routes import router as produto_router
+from app.importacao_routes import router as importacao_router
+from app.exportacao_routes import router as exportacao_router
 
 
 def create_app():
-    app = Flask(__name__)
-# Registrando o blueprint com as rotas        
-    blueprint = Blueprint('api', __name__, url_prefix='/api')
-    
-    api = Api(
-        blueprint,
+    app = FastAPI(
         title="Tech Challenge API",
-        contact="Alexandre Lima - ale_and5@hotmail.com | Thiago Ramos - | Lucas Caique de Lima - | Eduardo Barbosa - ",
         description="API para acessar dados da Embrapa",
         version="1.0",
-        doc='/docs'
+        contact={
+            "name": "Alexandre Lima, Thiago Ramos, Lucas Caique de Lima, Eduardo Barbosa",
+            "email": "ale_and5@hotmail.com"
+        }
     )
 
-    api.add_namespace(routes_namespace, path='/produtos')
-    api.add_namespace(importacao_ns, path='/dados')
-    api.add_namespace(exportacao_ns, path='/dados')
+    # Inclui os routers com prefixo /api
+    app.include_router(produto_router, prefix="/api/produtos", tags=["Produtos"])
+    app.include_router(importacao_router, prefix="/api/dados", tags=["Importação"])
+    app.include_router(exportacao_router, prefix="/api/dados", tags=["Exportação"])
 
-    app.register_blueprint(blueprint)
     return app
-

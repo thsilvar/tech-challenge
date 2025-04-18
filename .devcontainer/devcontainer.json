@@ -1,0 +1,16 @@
+{
+  "name": "tech-challenge",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ]
+}

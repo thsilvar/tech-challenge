@@ -32,9 +32,6 @@ def extrair_dados_tabela(html):
     return dados
 
 def extrair_exportacao_importacao(html):
-
-    
-    moeda = '$'
     # Extrai os dados da tabela de exportação e importação
     soup = BeautifulSoup(html, 'html.parser')
     # Pegando dentro <table class='tb_base tb_dados'>, o <tbody> e todas as <tr> que ela possui.
@@ -54,7 +51,7 @@ def extrair_exportacao_importacao(html):
             if quantidade != '-' and valor != '-':
                 dados.append({
                     'pais': pais,
-                    'quantidade_kg': quantidade,
+                    'quantidade_kg': quantidade + ' kg',
                     'valor_usd': '$' + valor
                 })
     return dados

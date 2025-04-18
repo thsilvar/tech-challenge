@@ -1,14 +1,15 @@
-class Produto:
+from pydantic import BaseModel, Field
 
+class Produto(BaseModel):
+    categoria: str
+    tipo_produto: str
+    quantidade: str
 
-    def __init__(self, categoria, produto, quantidade):
-        self.categoria = categoria
-        self.produto = produto
-        self.quantidade = quantidade
-
-    def to_dict(self):
-        return {
-            'categoria': self.categoria,
-            'tipo_produto': self.produto,
-            'quantidade': self.quantidade
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "categoria": "Vinho Tinto",
+                "tipo_produto": "Tinto",
+                "quantidade": "139.320.884"
+            }
         }
