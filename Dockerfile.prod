@@ -1,14 +1,21 @@
-# Dockerfile.prod
 FROM python:3.12-slim
 
 WORKDIR /app
 
+# Copia o arquivo de dependências
 COPY requirements.txt .
+
+# Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copia o código-fonte
 COPY . .
 
+# Define variáveis obrigatórias do Flask
 ENV FLASK_APP=main.py
 ENV FLASK_ENV=production
 
+EXPOSE 5000
+
+# Comando para iniciar o Flask
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
