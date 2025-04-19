@@ -1,5 +1,5 @@
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: backend-api
   namespace: default
@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: backend-api
-          image: thsilvar/backend-api:latest
+          image: thsilvar/backend-api:latest  # sua imagem
           ports:
-            - containerPort: 5000
+            - containerPort: 5000            # flask padrão
           env:
             - name: SECRET_KEY
               valueFrom:
