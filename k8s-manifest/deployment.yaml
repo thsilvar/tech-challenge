@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
         - name: backend-api
-          image: thsilvar/backend-api:latest  # sua imagem
+          image: thsilvar/backend-api:latest
           ports:
-            - containerPort: 5000            # flask padrão
+            - containerPort: 5000
           env:
-        - name: SECRET_KEY
-          value: "b65cf3714e9543eeb455331e46b8b8a74f881489aa9cfb3cd4a0752a41b79c39"
-        - name: JWT_SECRET_KEY
-          value: "d43fe28bc15bbca36477ab779ff29009785db97dad7765a5a80ce7512c7e09e8"
+            - name: SECRET_KEY
+              value: "b65cf3714e9543eeb455331e46b8b8a74f881489aa9cfb3cd4a0752a41b79c39"
+            - name: JWT_SECRET_KEY
+              value: "d43fe28bc15bbca36477ab779ff29009785db97dad7765a5a80ce7512c7e09e8"
