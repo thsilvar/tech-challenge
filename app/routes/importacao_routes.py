@@ -36,7 +36,7 @@ async def get_importacao(page: int = Query(1, ge=1),
     registros = [DadosComerciais(**d) for d in dados_extraidos]
 
     if pais:
-        registros = [r for r in registros if r.pais.lower() == pais.lower()]
+        registros = [r for r in registros if pais.lower() in r.pais.lower()  ]
     if qtd_min is not None:
         registros = [
             r for r in registros
