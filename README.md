@@ -46,6 +46,6 @@ A aplicação oferece as seguintes rotas para acessar os dados:
 2. No VS Code: F1 → Dev Containers: Rebuild and Reopen in Container
 3. Execute a aplicação:
    python main.py
-4. Acesse a API em http://127.0.0.1:8080/api/docs
+4. Acesse a API em http://localhost:8080/docs
 
 Contribuição:
